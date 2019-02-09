@@ -19,6 +19,9 @@ def test_reduce(seq):
 reduce is the hardest to be substituted in reduce, filter and map, because you need to find another new method to substitute it.
 Here sum() is a very handy substitute.
 '''
+'''
+also equal to add(seq[0],add(seq[1],add(seq[2],add(seq[3], ... ))))
+'''
 def substitute_reduce(seq):
     print(sum(seq))
 
