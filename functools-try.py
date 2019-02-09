@@ -18,21 +18,38 @@ def test_filter(wordseq):
     def short_word(word):
         if len(word) < 5:
             return True
-        else:
-            return
     print(list(filter(short_word, wordseq)))
 
 
 def substitute_filter(wordseq):
-    print([word for word in wordseq if len(word) < 5])
+    def short_word(word):
+        if len(word) < 5:
+            return True
+    print([word for word in wordseq if short_word(word)])
+
+
+def test_map(seq, wordseq):
+    def glue(x):
+        return str(x[0])+x[1]
+    print(list(map(glue, zip(seq, wordseq))))
+
+
+def substitute_map(seq, wordseq):
+    def glue(x):
+        return str(x[0]) + x[1]
+    print([glue(pair) for pair in zip(seq, wordseq)])
 
 
 if __name__ == '__main__':
-    seq = [1, 2, 3, 4]
-    wordseq = ['apple', 'pear', 'banana', 'haw', 'fig']
-    test_reduce(seq)
-    substitute_reduce(seq)
-    test_filter(wordseq)
-    substitute_filter(wordseq)
+    nums = [1, 2, 3, 4]
+    words = ['apple', 'pear', 'banana', 'haw', 'fig']
+    test_reduce(nums)
+    substitute_reduce(nums)
+
+    test_filter(words)
+    substitute_filter(words)
+
+    test_map(nums, words)
+    substitute_map(nums, words)
 
 
