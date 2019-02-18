@@ -1,0 +1,30 @@
+class Solution(object):
+    def maxDepth(self, root):
+    
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        
+        return root and max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1 or 0
+        
+       
+       '''
+       1 and 2 -> 2
+       2 and 1 -> 1
+       0 and 2 -> 0
+       2 and 0 -> 0
+       
+       3 or 4 -> 3
+       4 or 3 -> 4
+       
+       2 and 0 or 3 -> 3
+       2 and 1 or 3 -> 1
+       '''
+       
+       '''
+       root and max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1 or 0
+       means:
+       if root is None, root and max is None, you get 0
+       if root is not None, max is not None, you get max
+       '''
